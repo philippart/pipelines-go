@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Microsoft/ApplicationInsights-Go/appinsights"
+	"github.com/microsoft/ApplicationInsights-Go/appinsights"
 )
 
 type PageVars struct {
@@ -36,7 +36,7 @@ func getPort() string {
 	if p != "" {
 		return ":" + p
 	}
-	return ":80"
+	return ":32001" // >1024 for non sudoers and port forwarding VM -> PC
 }
 
 func render(w http.ResponseWriter, tmpl string, pageVars PageVars) {
